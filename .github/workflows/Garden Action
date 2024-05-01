@@ -1,0 +1,31 @@
+            - name: Garden Action
+  # You may pin to the exact commit or the version.
+  # uses: garden-io/garden-action@c221d0ec3ba851097c8175778a1be911b02cf989
+  uses: garden-io/garden-action@v1.2
+  with:
+    # All command line options for the garden cli command.
+
+If not provided, the garden-action will only install garden and export the KUBECONFIG and GARDEN_AUTH_TOKEN
+environment variables for use in scripts in later steps.
+
+    command: # optional
+    # Garden logger type. Defaults to basic.
+    logger-type: # optional, default is basic
+    # Garden log level. Defaults to verbose.
+    log-level: # optional, default is verbose
+    # A base64 encoded string of the kubeconfig to use with Garden. Optional.
+    kubeconfig: # optional
+    # Path where Garden expects the kubeconfig. Defaults to $HOME/kube/config.
+    kubeconfig-location: # optional, default is ${{ runner.temp }}/garden/kubeconfig
+    # Garden version. Defaults to latest stable.
+    garden-version: # optional, default is latest
+    # An auth token to authenticate in case your project is connected to Garden Cloud. Optional.
+    garden-auth-token: # optional
+    # A path to a garden project in a repository.
+
+Only necessary if there are multiple garden projects in a repository, or when the project.garden.yml is in a subdirectory.
+
+    garden-workdir: # optional
+    # Github token for releases API. Required. Defaults to the `github.token` context variable.
+    github-token: # default is ${{ github.token }}
+          
